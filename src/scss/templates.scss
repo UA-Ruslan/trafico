@@ -1,0 +1,24 @@
+@import "variables";
+%btnCommon {
+  background: rgba(238, 77, 71, 1);
+  height: 60px;
+  border: 0;
+  border-radius: 5px;
+  margin-left: 74px;
+  transition: $hoverTransition-0-3s;
+  &:hover {
+    transition: $hoverTransition-0-3s;
+    transform: scale(1.02);
+    color: rgba(238, 77, 71, 1);
+    background: #ffffff;
+    border: 1px solid rgba(238, 77, 71, 1);
+  }
+}
+
+%h3common {
+  font-family: "Rubik-Bold", sans-serif;
+  font-size: 24px;
+  line-height: 40px;
+  letter-spacing: 3px;
+  color: #EE4D47;
+}

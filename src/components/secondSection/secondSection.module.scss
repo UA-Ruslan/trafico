@@ -1,0 +1,58 @@
+@import "../../scss/templates";
+@import "../../scss/variables";
+
+.secondSectionWrapper {
+  display: flex;
+  padding: $commonPadding1;
+
+  .aboutUsWrapper {
+    .aboutUsPart1 {
+      .aboutUs {
+        @extend %h3common;
+      }
+
+      .aboutUsP1Style {
+        font-family: "Rubik-Regular", sans-serif;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 40px;
+        color: rgba(64, 43, 43, 1);
+      }
+    }
+
+    .aboutUsPart2 {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 570px;
+      padding: 0 63px;
+      height: 160px;
+      background: url("../../images/secondSection/img2.png") 0 0 / auto 100% no-repeat,  url("../../images/secondSection/img3.png") 0 0 / 100% auto no-repeat;
+
+      .aboutUsP2Style {
+        font-family: "Rubik-Regular", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 36px;
+        color: rgba(64, 43, 43, 1);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .secondSectionWrapper {
+    padding: $commonPadding2;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .secondSectionWrapper {
+    padding: $commonPadding3;
+  }
+}

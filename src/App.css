@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+    font-family: "DM Serif Display";
+    src: url("fonts/DMSerifDisplay-Regular.ttf");
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+    font-family: "Rubik-Regular";
+    src: url("fonts/Rubik-Regular.ttf");
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+    font-family: "Rubik-Bold";
+    src: url("fonts/Rubik-Bold.ttf");
 }
 
-.App-link {
-  color: #61dafb;
+body {
+    font-family: 'DM Serif Display', serif;
+    overflow-x: hidden;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+    font-size: 100px;
+    line-height: 100px;
+    color: #FFFFFF;
+    margin-top: 50px;
+}
+
+.app {
+    width: 100%;
+    background: #fcf7f4;
+    overflow-x: hidden;
+}
+
+a {
+    font-family: 'Rubik', sans-serif;;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: Bold;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+button {
+    color: #FFFFFF;
+    font-weight: Bold;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+@media screen and (max-width: 1280px) {
+    h1 {
+        font-size: 80px;
+        line-height: 80px;
+        color: #FFFFFF;
+        margin-top: 50px;
+    }
 }

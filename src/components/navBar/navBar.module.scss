@@ -1,0 +1,49 @@
+@import "../../scss/templates";
+
+.headerLinksWrapper {
+  .headerLink {
+    margin-right: 100px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .btnContactUs {
+    width: 158px;
+    @extend %btnCommon;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .headerLinksWrapper {
+    .headerLink {
+      margin-right: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .headerLinksWrapper {
+    .headerLink {
+      margin-right: 25px;
+    }
+
+    .btnContactUs {
+      margin-left: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .headerLinksWrapper {
+    display: none;
+    //.headerLink {
+    //  margin-right: 25px;
+    //}
+    //
+    //.btnContactUs {
+    //  margin-left: 30px;
+    //}
+  }
+}
