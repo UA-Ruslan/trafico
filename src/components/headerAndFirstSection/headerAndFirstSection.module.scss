@@ -5,17 +5,68 @@
   max-width: 100vw;
   height: 1230px;
   overflow: hidden;
-  background:   url("../../images/headerAndFirstSection/Scene1.png") 0 0 / 100% 1005px no-repeat;
+  background: url("../../images/headerAndFirstSection/Scene1.webp") 0 0 / 100% 1005px no-repeat;
   padding: $commonPadding1;
   position: relative;
   top: 0;
   left: 0;
   margin-bottom: 106px;
+  z-index: 10;
+
   .carImg {
     position: absolute;
     left: 0;
     top: 68%;
+    height: 24.6vw;
+    max-height: 394px;
+    width: 37.5%;
+    z-index: 0;
   }
+
+  .carImgFirstAnime {
+    animation-name: carImg;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-delay: .5s;
+    @keyframes carImg {
+      0% {
+        left: -50%;
+      }
+      100% {
+        left: 0;
+      }
+    }
+  }
+
+  .carAnim {
+    left: 0;
+    animation-name: carAnim;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes carAnim {
+    0% {
+      left: 0;
+      transform: rotate(0);
+    }
+    25% {
+      transform: rotate(1deg);
+    }
+    50% {
+      left: -100px;
+      transform: rotate(-1deg);
+
+    }
+    75% {
+      transform: rotate(1deg);
+    }
+    100% {
+      transform: rotate(0);
+      left: 0;
+    }
+  }
+
   .header {
     width: 100%;
     height: 140px;
@@ -28,11 +79,51 @@
       top: 0;
       left: 0;
       padding-left: 60px;
+      transition: .3s;
+      &:hover .logoLink {
+        color: rgb(140, 140, 140);
+        transition: .3s;
+        text-shadow: -3px -2px 2px white;
+      }
 
       .logoImg1 {
         position: absolute;
         left: 0;
         top: -15px;
+      }
+
+      .logoImg1Active {
+        animation-name: logoImg1Active;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes logoImg1Active {
+        0% {
+          transform: rotate(0) scale(1);
+          left: 0;
+          top: -15px;
+        }
+        25% {
+          transform: rotate(-180deg) scale(2);
+          left: 5px;
+          top: 5px;
+        }
+        50% {
+          transform: rotate(0) scale(1);
+          left: 0;
+          top: -15px;
+        }
+        75% {
+          transform: rotate(180deg) scale(2);
+          left: 5px;
+          top: 5px;
+        }
+        100% {
+          transform: rotate(0) scale(1);
+          left: 0;
+          top: -15px;
+        }
       }
 
       .logoImg2 {
@@ -41,10 +132,45 @@
         top: 3px;
       }
 
+      .logoImg2Active {
+        animation-name: logoImg2Active;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes logoImg2Active {
+        0% {
+          transform: rotate(0) scale(1);
+          left: 17px;
+          top: 3px;
+        }
+        25% {
+          transform: rotate(180deg) scale(.5);
+          left: -5px;
+          top: -5px;
+        }
+        50% {
+          transform: rotate(0) scale(1);
+          left: 17px;
+          top: 3px;
+        }
+        75% {
+          transform: rotate(-180deg) scale(.5);
+          left: -5px;
+          top: -5px;
+        }
+        100% {
+          transform: rotate(0) scale(1);
+          left: 17px;
+          top: 3px;
+        }
+      }
+
       .logoLink {
         font-family: 'DM Serif Display', serif;
         font-size: 32px;
         line-height: 32px;
+        transition: .3s;
       }
     }
 
@@ -65,9 +191,11 @@
   }
 
   & div .btnGetStarted {
+    position: relative;
     width: 220px;
     margin-left: 0;
     @extend %btnCommon;
+    z-index: 10;
 
     .btnImg {
       margin-left: 24px;
@@ -77,15 +205,16 @@
 
 @media screen and (max-width: 1280px) {
   .headerAndFirstSectionWrapper {
-    background:  url("../../images/headerAndFirstSection/Scene1.png") 0 0 / auto 1005px no-repeat;
+    background: url("../../images/headerAndFirstSection/Scene1.webp") 0 0 / auto 1005px no-repeat;
     padding: $commonPadding2;
+    margin-bottom: 0;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .headerAndFirstSectionWrapper {
-    background:  url("../../images/headerAndFirstSection/Scene1.png") 0 0 / auto 1005px no-repeat;
-    padding: $commonPadding3;
+    background: url("../../images/headerAndFirstSection/Scene1.webp") 0 0 / auto 1005px no-repeat;
+    padding: $commonPadding2;
 
     .header {
       .headerLinksWrapper {
@@ -98,66 +227,46 @@
         }
       }
     }
+
+    div h1 {
+      margin: 100px 0 150px 0;
+    }
   }
 }
 
-//@media screen and (max-width: 768px) {
-//  .headerAndFirstSectionWrapper {
-//    max-width: 100vw;
-//    height: 1230px;
-//    overflow: hidden;
-//    background:   url("../../images/headerAndFirstSection/Scene1.png") 0 0 / 100% 1005px no-repeat;
-//    padding: $commonPadding1;
-//    position: relative;
-//    top: 0;
-//    left: 0;
-//    margin-bottom: 106px;
-//    .carImg {
-//      position: absolute;
-//      left: 0;
-//      top: 68%;
-//    }
-//    .header {
-//      width: 100%;
-//      height: 140px;
-//      display: flex;
-//      justify-content: space-between;
-//      align-items: center;
-//
-//      .headerLogoWrapper {
-//        position: relative;
-//        top: 0;
-//        left: 0;
-//        padding-left: 60px;
-//
-//        .logoImg1 {
-//          position: absolute;
-//          left: 0;
-//          top: -15px;
-//        }
-//
-//        .logoImg2 {
-//          position: absolute;
-//          left: 17px;
-//          top: 3px;
-//        }
-//
-//        .logoLink {
-//          font-family: 'DM Serif Display', serif;
-//          font-size: 32px;
-//          line-height: 32px;
-//        }
-//      }
-//    }
-//
-//    & div .btnGetStarted {
-//      width: 220px;
-//      margin-left: 0;
-//      @extend %btnCommon;
-//
-//      .btnImg {
-//        margin-left: 24px;
-//      }
-//    }
-//  }
-//}
+@media screen and (max-width: 768px) {
+  .headerAndFirstSectionWrapper {
+    height: 1000px;
+
+    .carImg {
+      position: absolute;
+      left: 0;
+      top: 80%;
+      height: 24.6vw;
+      max-height: 394px;
+      width: 37.5%;
+      z-index: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .headerAndFirstSectionWrapper {
+    padding: $commonPadding4;
+    text-align: center;
+
+    & div h1 {
+      font-size: 60px;
+
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .headerAndFirstSectionWrapper {
+    & div h1 {
+      font-size: 45px;
+      line-height: 50px;
+    }
+  }
+}

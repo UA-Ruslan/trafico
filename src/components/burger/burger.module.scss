@@ -1,52 +1,277 @@
+@import "../../scss/templates";
+
 .burgerWrapper {
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  background: rgba(0, 0, 255, 0.49);
+  z-index: 100;
+  display: none;
+  .burgerBtnWrapper {
+    width: 40px;
+    height: 40px;
+    display: none;
+    z-index: 99;
+    position: fixed;
+    right: 5%;
+    top: 4.5%;
+    overflow: hidden;
+
+    .burgerBtnItem {
+      width: 100%;
+      height: 8px;
+      background: rgba(238, 77, 71, 1);
+      border: 1px solid white;
+      margin: 2px 0;
+      border-radius: 20px;
+      position: absolute;
+      top: 30%;
+      left: 0;
+
+
+      &:last-child {
+        width: 60%;
+        top: 60%;
+      }
+    }
+
+    /*------------------------------------------------------------*/
+    .item1ForwardAnim {
+      border: none;
+      animation-name: item1ForwardAnim;
+      animation-duration: .5s;
+      animation-fill-mode: forwards;
+
+    }
+
+    @keyframes item1ForwardAnim {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(45deg);
+      }
+    }
+
+    .item1BackwardAnim {
+      animation-name: item1BackwardAnim;
+      animation-duration: .5s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes item1BackwardAnim {
+      0% {
+        transform: rotate(-45deg);
+        border: none;
+      }
+      100% {
+        transform: rotate(0);
+        border: 1px solid white;
+      }
+    }
+    /*------------------------------------------------------------*/
+    .item2ForwardAnim {
+      border: none;
+      animation-name: item2ForwardAnim;
+      animation-duration: .5s;
+      animation-fill-mode: forwards;
+
+    }
+
+    @keyframes item2ForwardAnim {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .item2BackwardAnim {
+      animation-name: item2BackwardAnim;
+      animation-duration: .5s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes item2BackwardAnim {
+      0% {
+        transform: rotate(45deg);
+        border: none;
+      }
+      100% {
+        transform: rotate(0);
+        border: 1px solid white;
+      }
+    }
+    /*------------------------------------------------------------*/
+    .item3ForwardAnim {
+      animation-name: item3ForwardAnim;
+      animation-duration: .5s;
+      animation-fill-mode: forwards;
+      @keyframes item3ForwardAnim {
+        0% {
+          left: 0;
+        }
+        100% {
+          left: -100%;
+        }
+      }
+    }
+
+    .item3BackwardAnim {
+      animation-name: item3BackwardAnim;
+      animation-duration: .5s;
+      animation-fill-mode: forwards;
+      @keyframes item3BackwardAnim {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 0;
+        }
+      }
+    }
+
+    /*------------------------------------------------------------*/
+  }
+
+
+  .dropdownMenuInactive {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    animation-name: burgerInactive;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    z-index: 50;
+
+    @keyframes burgerInactive {
+      0% {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        background: rgb(0, 0, 0);
+      }
+      1% {
+        width: 300vh;
+        height: 300vh;
+        border-radius: 50%;
+        background: rgb(0, 0, 0);
+
+      }
+      100% {
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgb(0, 0, 0);
+      }
+    }
+  }
+
+  .dropdownMenuActive {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: burgerActive;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    z-index: 50;
+
+    @keyframes burgerActive {
+      0% {
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgb(0, 0, 0);
+
+      }
+      99% {
+        width: 300vh;
+        height: 300vh;
+        border-radius: 50%;
+        background: rgb(0, 0, 0);
+
+      }
+      100% {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        background: rgb(0, 0, 0);
+      }
+    }
+  }
+
+  .linksWrapperActive {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 100vh;
+    animation-name: burgerLinksWrapperActive;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    @keyframes burgerLinksWrapperActive {
+      0% {
+        position: fixed;
+        top: 0;
+        left: 50%;
+      }
+      100% {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+      }
+    }
+
+    .btnContactUs {
+      @extend %btnCommon;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin: 50px 0 0 0;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .linkWrapper {
+      margin: 45px 0;
+
+      .link {
+        font-size: 1.5rem;
+      }
+    }
+
+  }
+}
+
+.displayNone {
   display: none;
 }
 
-.burgerActive {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation-name: burgerActive;
-  animation-duration: .3s;
-  animation-fill-mode: forwards;
-  z-index: 50;
-}
-.burgerInactive {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  transform: translate(-50%, -50%);
-  //animation-name: burgerActive;
-  //animation-duration: .3s;
-  //animation-fill-mode: forwards;
-  //z-index: 50;
-}
 
-@keyframes burgerActive {
-  0% {
-    width: 0;
-    height: 0;
-    border-radius: 50%; /* додано */
-    background: rgba(238, 77, 71, 1);
-
-  }
-  100% {
-    width: 100vw;
-    height: 100vh;
-    //border-radius: 50%; /* додано */
-    background: rgba(238, 77, 71, 1);
-
-  }
-}
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .burgerWrapper {
     display: block;
+    .burgerBtnWrapper {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .burgerWrapper .dropdownMenuActive .linksWrapperActive {
+    .btnContactUs {
+      height: 50px;
+      border-radius: 5px;
+      margin: 10px 0 0 0;
+      font-size: 1rem;
+    }
+
+    .linkWrapper {
+      margin: 10px 0;
+    }
+
   }
 }

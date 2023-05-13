@@ -1,0 +1,59 @@
+@import "../../scss/templates";
+@import "../../scss/variables";
+
+.thirdSectionWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: $commonPadding1;
+
+  div .thirdSectionImg {
+    max-width: 721px;
+    max-height: 679px
+  }
+
+  .howToPlayWrapper {
+    .howToPlayTitle {
+      @extend %h3common;
+      margin-bottom: 40px;
+    }
+
+    .howToPlayP1Style {
+      @extend %PCommon;
+    }
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .thirdSectionWrapper {
+    padding-right: 50px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .thirdSectionWrapper {
+    padding: $commonPadding2;
+    flex-direction: column-reverse;
+    text-align: center;
+
+    .howToPlayWrapper .howToPlayP1Style {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .thirdSectionWrapper {
+    padding: $commonPadding4;
+
+    div .thirdSectionImg {
+      max-width: 100%;
+    }
+
+    .howToPlayWrapper {
+      .howToPlayP1Style {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+  }
+}

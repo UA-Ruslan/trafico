@@ -1,6 +1,23 @@
 * {
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #EE4D47 #fdd2d2;
 }
+
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #fdd2d2;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color:  #EE4D47;
+    border-radius: 0;
+}
+
 
 @font-face {
     font-family: "DM Serif Display";
@@ -16,6 +33,10 @@
     font-family: "Rubik-Bold";
     src: url("fonts/Rubik-Bold.ttf");
 }
+@font-face {
+    font-family: "Rubik-Medium";
+    src: url("fonts/Rubik-Medium.ttf");
+}
 
 body {
     font-family: 'DM Serif Display', serif;
@@ -30,6 +51,11 @@ h1 {
     line-height: 100px;
     color: #FFFFFF;
     margin-top: 50px;
+}
+h2 {
+    font-size: 48px;
+    line-height: 67px;
+    font-weight: 400;
 }
 
 .app {

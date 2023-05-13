@@ -12,11 +12,7 @@
       }
 
       .aboutUsP1Style {
-        font-family: "Rubik-Regular", sans-serif;
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 40px;
-        color: rgba(64, 43, 43, 1);
+        @extend %PCommon;
       }
     }
 
@@ -30,7 +26,7 @@
       width: 570px;
       padding: 0 63px;
       height: 160px;
-      background: url("../../images/secondSection/img2.png") 0 0 / auto 100% no-repeat,  url("../../images/secondSection/img3.png") 0 0 / 100% auto no-repeat;
+      background: url("../../images/secondSection/img2.png") 0 0 / auto 100% no-repeat, url("../../images/secondSection/img3.png") 0 0 / 100% 100% no-repeat;
 
       .aboutUsP2Style {
         font-family: "Rubik-Regular", sans-serif;
@@ -41,6 +37,11 @@
       }
     }
   }
+
+  div .secondSectionImg {
+    max-width: 575px;
+    max-height: 480px;
+  }
 }
 
 @media screen and (max-width: 1280px) {
@@ -49,10 +50,50 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    .aboutUsWrapper .aboutUsPart1 {
+      margin-bottom: 50px;
+    }
   }
 }
+
 @media screen and (max-width: 1024px) {
   .secondSectionWrapper {
     padding: $commonPadding3;
+    .aboutUsWrapper .aboutUsPart2 {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .secondSectionWrapper {
+    padding: $commonPadding4;
+    padding-bottom: 0;
+
+    .aboutUsWrapper {
+      .aboutUsPart1 .aboutUsP1Style {
+        font-size: 12px;
+        line-height: 20px;
+      }
+
+      .aboutUsPart2 {
+        max-width: 100%;
+        height: max-content;
+
+        .aboutUsP2Style {
+          position: static;
+          font-size: 18px;
+          line-height: 25px;
+        }
+      }
+    }
+
+    .aboutUsWrapper {
+      max-width: 100%;
+    }
+
+    & div .secondSectionImg {
+      max-width: 100%;
+    }
   }
 }

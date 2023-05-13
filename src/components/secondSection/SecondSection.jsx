@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./secondSection.module.scss"
-import img1 from "../../images/secondSection/img1.png"
+import img1 from "../../images/secondSection/img1.webp"
 
 const SecondSection = () => {
     return (
@@ -24,7 +24,7 @@ const SecondSection = () => {
                 </div>
             </div>
             <div>
-                <img src={img1} alt="second-section-img"/>
+                <img className={style.secondSectionImg} src={img1} alt="second-section-img"/>
             </div>
         </div>
     )
