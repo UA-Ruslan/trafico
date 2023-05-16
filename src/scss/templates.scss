@@ -29,3 +29,50 @@
   line-height: 40px;
   color: rgba(64, 43, 43, 1);
 }
+%minusStyle {
+  .minusWrapper {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    .minus {
+      width: 20px;
+      height: 2.5px;
+      background: #EE4D47;
+    }
+  }
+}
+
+%plusStyle {
+  .plusWrapper {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+
+    .plus1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 2.5px;
+      background: #EE4D47;
+    }
+
+    .plus2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 2px;
+      background: #EE4D47;
+      transform: translateX(-50%) rotate(90deg);
+    }
+  }
+}

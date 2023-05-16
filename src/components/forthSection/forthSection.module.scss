@@ -54,7 +54,7 @@
     margin-top: 89px;
 
     .faqInfoBoxWrapper {
-      width: 48%;
+      width: calc(50% - 20px);
       height: 90px;
       margin: 5px 10px;
       display: flex;
@@ -89,49 +89,9 @@
           width: max-content;
           margin-left: 60px;
 
-          .minusWrapper {
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+          @extend %minusStyle;
 
-            .minus {
-              width: 20px;
-              height: 2.5px;
-              background: #EE4D47;
-            }
-          }
-
-          .plusWrapper {
-            width: 20px;
-            height: 20px;
-            position: relative;
-            top: 0;
-            left: 0;
-            cursor: pointer;
-
-            .plus1 {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translateX(-50%);
-              width: 20px;
-              height: 2.5px;
-              background: #EE4D47;
-            }
-
-            .plus2 {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              width: 20px;
-              height: 2px;
-              background: #EE4D47;
-              transform: translateX(-50%) rotate(90deg);
-            }
-          }
+          @extend %plusStyle;
         }
       }
 
@@ -143,7 +103,7 @@
         left: 0;
 
         .faqDropItemInactive {
-          position: absolute;
+          position: relative;
           top: 0;
           left: 0;
           width: 100%;
@@ -151,6 +111,7 @@
           transition: .3s;
           overflow: hidden;
           background: #FFF7F5;
+          border: 0 solid #fdd2d2;
 
           p {
             display: none;
@@ -158,7 +119,7 @@
         }
 
         .faqDropItemActive {
-          position: absolute;
+          position: relative;
           top: 0;
           left: 0;
           width: 100%;
@@ -188,6 +149,46 @@
       }
     }
   }
+
+  .buttonsWrapper {
+    display: flex;
+    margin-top: 12px;
+
+    .goBackLoadMoreBtnWrapper {
+      width: 50%;
+      height: 90px;
+      margin: 5px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(250, 205, 200, 0.52);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .3s;
+      padding: 0 35px;
+
+      &:hover {
+        background: rgb(250, 205, 200);
+        transition: .3s;
+      }
+
+      .h3BtnWrapper {
+        margin: 0 auto;
+        h3 {
+          color: #EE4D47;
+          font-family: "Rubik-Bold", sans-serif;
+          font-size: 18px;
+          line-height: 30px;
+        }
+      }
+
+
+      @extend %minusStyle;
+      @extend %plusStyle;
+
+    }
+  }
 }
 
 @media screen and (max-width: 1500px) {
@@ -203,13 +204,22 @@
 @media screen and (max-width: 1280px) {
   .forthSectionWrapper {
     padding: $commonPadding3;
-
+    .faqTopBlock {
+      .faqImgWrapper {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
     .dataItemsWrapper {
       flex-direction: column;
       align-items: center;
 
-      .faqInfoBoxWrapper .faqInfoBox .elWrapper p {
-        font-size: 15px;
+      .faqInfoBoxWrapper {
+        width: 98%;
+        .faqInfoBox .elWrapper p {
+          font-size: 15px;
+        }
       }
     }
 
@@ -231,4 +241,38 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 768px) {
+  .forthSectionWrapper {
+    padding: $commonPadding4;
+    .faqTopBlock {
+      .faqTextWrapper {
+        h2 {
+          font-size: 25px;
+        }
+      }
+      .faqImgWrapper {
+        margin: 0;
+      }
+    }
+    .dataItemsWrapper .faqInfoBoxWrapper {
+      margin: 5px 0;
+      .faqInfoBox {
+        padding: 15px;
+        .elWrapper p{
+          font-size: 12px;
+          line-height: 15px;
+        }
+      }
+    }
+    .buttonsWrapper {
+      flex-direction: column-reverse;
+      .goBackLoadMoreBtnWrapper {
+        width: 100%;
+        margin: 5px 0;
+      }
+    }
+  }
+
 }

@@ -39,7 +39,7 @@ const ForthSection = (props) => {
 
     let questionItems = currentItems.map((el, index) => {
         return (
-            <div tabIndex={0} onBlur={deactivateDropItem}  key={index} className={style.faqInfoBoxWrapper}>
+            <div tabIndex={0} onBlur={deactivateDropItem} key={index} className={style.faqInfoBoxWrapper}>
                 <div className={style.faqInfoBox}>
                     <div className={style.elWrapper}>
                         <p>{el.question}</p>
@@ -47,7 +47,7 @@ const ForthSection = (props) => {
                     <div className={style.symbolWrapper}>
                         {activeItem === index
                             ? <div className={style.minusWrapper} onClick={deactivateDropItem}>
-                                <div  className={style.minus}></div>
+                                <div className={style.minus}></div>
                             </div>
                             : <div className={style.plusWrapper} onClick={() => {
                                 activateDropItem(index)
@@ -80,12 +80,30 @@ const ForthSection = (props) => {
             <div className={style.dataItemsWrapper}>
                 {questionItems}
             </div>
-            <button onClick={handleBack}>BACK</button>
-            <button disabled={currentIndex >= props.questionData.length - itemsPerPage} onClick={handleNext}>NEXT</button>
+            <div className={style.buttonsWrapper}>
+                <button onClick={handleBack} className={style.goBackLoadMoreBtnWrapper}>
+                    <div className={style.h3BtnWrapper}>
+                        <h3>GO BACK</h3>
+                    </div>
+                    <div className={style.minusWrapper}>
+                        <div className={style.minus}></div>
+                    </div>
+                </button>
+
+                <button disabled={currentIndex >= props.questionData.length - itemsPerPage} onClick={handleNext}
+                        className={style.goBackLoadMoreBtnWrapper}>
+                    <div className={style.h3BtnWrapper}>
+                        <h3>LOAD MORE</h3>
+                    </div>
+                    <div className={style.plusWrapper}>
+                        <div className={style.plus1}></div>
+                        <div className={style.plus2}></div>
+                    </div>
+                </button>
+            </div>
         </div>
     )
 }
-
 
 
 export default ForthSection;

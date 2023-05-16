@@ -4,7 +4,7 @@ import HeaderAndFirstSection from "./components/headerAndFirstSection/HeaderAndF
 import SecondSection from "./components/secondSection/SecondSection";
 import ThirdSection from "./components/thirdSection/ThirdSection";
 import ForthSection from "./components/forthSection/ForthSection";
-import FifthSection from "./components/fifthSection/FifthSection";
+import FifthSectionFooter from "./components/fifthSectionFooter/FifthSectionFooter";
 
 function App() {
     return (
@@ -13,7 +13,7 @@ function App() {
             <SecondSection/>
             <ThirdSection/>
             <ForthSection questionData={data.questionData}/>
-            {/*<FifthSection/>*/}
+            <FifthSectionFooter/>
         </div>
     );
 }

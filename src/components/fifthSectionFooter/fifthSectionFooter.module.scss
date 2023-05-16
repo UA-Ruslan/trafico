@@ -1,0 +1,49 @@
+@import "../../scss/variables";
+
+.fifthSectionWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: $commonPadding1;
+  position: relative;
+  margin-top: 80px;
+  overflow: hidden;
+
+  .background {
+    position: absolute;
+    top: 765px;
+    left: 0;
+    height: 660px;
+    width: 87.5%;
+    max-width: 1400px;
+    background: #0f264c;
+    z-index: 0;
+    border-radius: 0 100px 0 0;
+    overflow: hidden;
+
+    .bgLine {
+      position: absolute;
+      max-width: 1400px;
+      top: 0;
+      left: 0;
+    }
+
+    .carImg {
+      position: absolute;
+      top: -170px;
+      left: 0;
+    }
+  }
+
+  .contentWrapper {
+    display: flex;
+    position: relative;
+    height: 450px;
+    background: aquamarine;
+  }
+
+  .formWrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+}
