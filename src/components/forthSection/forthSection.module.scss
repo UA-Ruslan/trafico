@@ -7,6 +7,7 @@
   left: 0;
   z-index: 3;
   padding: $commonPadding1;
+  padding-bottom: 0;
   overflow: hidden;
   min-height: 1500px;
   background: url("../../images/forthSection/bg.webp") 100% 100% / 73% 100% no-repeat;
@@ -194,6 +195,7 @@
 @media screen and (max-width: 1500px) {
   .forthSectionWrapper {
     padding: $commonPadding3;
+    padding-bottom: 0;
 
     & .dataItemsWrapper .faqInfoBoxWrapper .faqInfoBox .elWrapper p {
       font-size: 15px;
@@ -204,6 +206,7 @@
 @media screen and (max-width: 1280px) {
   .forthSectionWrapper {
     padding: $commonPadding3;
+    padding-bottom: 0;
     .faqTopBlock {
       .faqImgWrapper {
         img {
@@ -246,6 +249,7 @@
 @media screen and (max-width: 768px) {
   .forthSectionWrapper {
     padding: $commonPadding4;
+    padding-bottom: 0;
     .faqTopBlock {
       .faqTextWrapper {
         h2 {

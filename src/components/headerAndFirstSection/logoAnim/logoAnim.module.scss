@@ -1,0 +1,105 @@
+.logoWrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding-left: 60px;
+  transition: .3s;
+  &:hover .logoLink {
+    color: #EE4D47;
+    transition: .3s;
+    text-shadow: -3px -2px 2px white;
+  }
+
+  .logoImg1 {
+    position: absolute;
+    left: 0;
+    top: -15px;
+  }
+
+  .logoImg1Active {
+    animation-name: logoImg1Active;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes logoImg1Active {
+    0% {
+      transform: rotate(0) scale(1);
+      left: 0;
+      top: -15px;
+    }
+    25% {
+      transform: rotate(-180deg) scale(2);
+      left: 5px;
+      top: 5px;
+    }
+    50% {
+      transform: rotate(0) scale(1);
+      left: 0;
+      top: -15px;
+    }
+    75% {
+      transform: rotate(180deg) scale(2);
+      left: 5px;
+      top: 5px;
+    }
+    100% {
+      transform: rotate(0) scale(1);
+      left: 0;
+      top: -15px;
+    }
+  }
+
+  .logoImg2 {
+    position: absolute;
+    left: 17px;
+    top: 3px;
+  }
+
+  .logoImg2Active {
+    animation-name: logoImg2Active;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes logoImg2Active {
+    0% {
+      transform: rotate(0) scale(1);
+      left: 17px;
+      top: 3px;
+    }
+    25% {
+      transform: rotate(180deg) scale(.5);
+      left: -5px;
+      top: -5px;
+    }
+    50% {
+      transform: rotate(0) scale(1);
+      left: 17px;
+      top: 3px;
+    }
+    75% {
+      transform: rotate(-180deg) scale(.5);
+      left: -5px;
+      top: -5px;
+    }
+    100% {
+      transform: rotate(0) scale(1);
+      left: 17px;
+      top: 3px;
+    }
+  }
+
+  .logoLink {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    line-height: 32px;
+    transition: .3s;
+    color: #FFFFFF;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}

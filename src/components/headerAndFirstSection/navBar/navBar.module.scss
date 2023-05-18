@@ -1,8 +1,15 @@
-@import "../../scss/templates";
+@import "../../../scss/templates";
 
 .headerLinksWrapper {
   .headerLink {
     margin-right: 100px;
+    transition: .3s;
+
+    &:hover {
+      color: #EE4D47;
+      transition: .3s;
+      text-shadow: -1px -1px 1px white;
+    }
 
     &:last-of-type {
       margin-right: 0;

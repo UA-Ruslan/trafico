@@ -1,31 +1,24 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import style from "./headerAndFirstSection.module.scss"
-import btnArrow from "../../images/headerAndFirstSection/Union.png"
-import logoImg1 from "../../images/headerAndFirstSection/logoImg1.png"
-import logoImg2 from "../../images/headerAndFirstSection/logoImg2.png"
+import btnArrowWhite from "../../images/headerAndFirstSection/Union.png"
+import btnArrowRed from "../../images/fifthSectionFooter/next.png"
 import model from "../../images/headerAndFirstSection/mobel.webp"
-import NavBar from "../navBar/NavBar";
-import Burger from "../burger/Burger";
+import NavBar from "./navBar/NavBar";
+import Burger from "./burger/Burger";
+import LogoAnim from "./logoAnim/LogoAnim";
 
-const HeaderAndFirstSection = () => {
+const HeaderAndFirstSection = (props) => {
     const [isBurgerActive, setBurgerActive] = useState(null);
     const [isCarActive, setCarActive] = useState(false);
-    const [isLogoActive, setLogoActive] = useState(false);
     const [animationPlayed, setAnimationPlayed] = useState(false);
+    const ref = useRef(null)
+
 
     useEffect(() => {
         setTimeout(() => {
             setAnimationPlayed(true)
         }, 2000)
     }, []);
-
-    useEffect(() => {
-        if (isLogoActive) {
-            setTimeout(() => {
-                setLogoActive(false);
-            }, 1000);
-        }
-    }, [isLogoActive]);
 
     const burgerToggle = () => {
         if (isBurgerActive === null) {
@@ -36,45 +29,43 @@ const HeaderAndFirstSection = () => {
     };
 
     const activateCarAnim = () => {
-        setCarActive(true)
+        setCarActive(true);
+        props.setBtnActive(true);
     };
 
     const deactivateCarAnim = () => {
-        setCarActive(false)
+        setCarActive(false);
+        props.setBtnActive(false);
     };
-
-    const activateLogoAnim = () => {
-        setLogoActive(true)
-    };
-
-    const deactivateLogoAnim = () => {
-        setLogoActive(true);
+    const btnRedirect = () => {
+        ref.current.click();
     };
 
     return (
         <div className={style.headerAndFirstSectionWrapper}>
             <header className={style.header}>
-                <div onMouseOver={activateLogoAnim} onMouseOut={deactivateLogoAnim} className={style.headerLogoWrapper}>
-                    <img className={!isLogoActive ? style.logoImg1 : `${style.logoImg1} ${style.logoImg1Active}`}
-                         src={logoImg1} alt="logoImg1"/>
-                    <img className={!isLogoActive ? style.logoImg2 : `${style.logoImg1} ${style.logoImg2Active}`}
-                         src={logoImg2} alt="logoImg2"/>
-                    <a className={style.logoLink} href="#">TRAFICO.</a>
-                </div>
 
-                <NavBar/>
-                <Burger burgerToggle={burgerToggle} isBurgerActive={isBurgerActive}/>
+                <LogoAnim/>
+                <NavBar commonId={props.commonId}/>
+                <Burger
+                    commonId={props.commonId}
+                    burgerToggle={burgerToggle}
+                    isBurgerActive={isBurgerActive}
+                    setBurgerActive={setBurgerActive}
+                />
 
             </header>
             <div>
                 <h1>Your awesome <br/> traffic permit <br/> consultant.</h1>
             </div>
             <div>
-                <button onMouseOver={activateCarAnim} onMouseOut={deactivateCarAnim} className={style.btnGetStarted}>
+                <button onClick={btnRedirect} onMouseOver={activateCarAnim} onMouseOut={deactivateCarAnim} className={style.btnGetStarted}>
                     GET STARTED
-                    <img className={style.btnImg} src={btnArrow} width="30px" height="12px" alt=""/>
+                    {!props.btnActive
+                        ? <img className={style.btnImg} src={btnArrowWhite} width="30px" height="12px" alt=""/>
+                        :<img className={style.btnImg} src={btnArrowRed} width="30px" height="12px" alt=""/>}
                 </button>
-
+                <a ref={ref} style={{display:"none"}} href={`#${props.commonId.contactUs}`}></a>
             </div>
             <img
                 className={!animationPlayed ? `${style.carImg} ${style.carImgFirstAnime}` : !isCarActive ? style.carImg : `${style.carImg} ${style.carAnim}`}

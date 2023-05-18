@@ -1,8 +1,12 @@
-import React, {useEffect, useState} from "react";
-import style from "./burger.module.scss"
+import React, {useEffect, useRef, useState} from "react";
+import style from "./burger.module.scss";
 
 const Burger = (props) => {
-    const [linksWrapperActive, setLinksWrapperActive] = useState(false)
+
+    const [linksWrapperActive, setLinksWrapperActive] = useState(false);
+
+    const ref = useRef(null);
+
     useEffect(() => {
         let timeout;
         if (props.isBurgerActive) {
@@ -13,7 +17,16 @@ const Burger = (props) => {
             setLinksWrapperActive(false)
         }
         return () => clearTimeout(timeout);
-    }, [props.isBurgerActive])
+    }, [props.isBurgerActive]);
+
+    const clickOnLink = () => {
+        props.setBurgerActive(false)
+    };
+
+    const btnRedirect = () => {
+        ref.current.click()
+        props.setBurgerActive(false)
+    };
 
     return (
         <div className={style.burgerWrapper}>
@@ -51,17 +64,17 @@ const Burger = (props) => {
 
                 <div className={linksWrapperActive ? style.linksWrapperActive : style.displayNone}>
                     <div className={style.linkWrapper}>
-                        <a className={style.link} href="#">ABOUT</a>
+                        <a onClick={clickOnLink} className={style.link} href={`#${props.commonId.about}`}>ABOUT</a>
                     </div>
                     <div className={style.linkWrapper}>
-                        <a className={style.link} href="#">HOW TO</a>
+                        <a onClick={clickOnLink} className={style.link} href={`#${props.commonId.howTo}`}>HOW TO</a>
                     </div>
                     <div className={style.linkWrapper}>
-                        <a className={style.link} href="#">FAQS</a>
+                        <a onClick={clickOnLink} className={style.link} href={`#${props.commonId.faqs}`}>FAQS</a>
                     </div>
 
-                    <button className={style.btnContactUs}>CONTACT <br/> US</button>
-
+                    <button onClick={btnRedirect} className={style.btnContactUs}>CONTACT <br/> US</button>
+                    <a style={{display:"none"}} ref={ref} href={`#${props.commonId.contactUs}`}></a>
                 </div>
             </div>
         </div>

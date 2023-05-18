@@ -1,0 +1,160 @@
+@import "../../../scss/templates";
+
+.sliderWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .sliderButtonsWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    & button img {
+      transition: .2s;
+
+      &:hover {
+        transform: scale(1.2);
+        transition: .2s;
+      }
+    }
+
+    .sliderBtnWrapper {
+      margin: 3px 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .clientsWrapper {
+    height: 360px;
+    position: absolute;
+    left: 35%;
+    top: 90px;
+    overflow: hidden;
+
+    .usersWrapper {
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: .3s;
+      height: 360px;
+
+      .userWrapper {
+        height: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: .3s;
+        background: #FFFFFF;
+        box-shadow: 0 20px 40px rgba(238, 77, 71, 0.1);
+        border-radius: 10px;
+        padding: 60px 50px 40px 50px;
+        margin: 0 5px;
+
+        .messageWrapper {
+          @extend %PCommon;
+          line-height: 30px;
+          max-height: 155px;
+          overflow-x: hidden;
+          overflow-y: auto;
+
+          &::-webkit-scrollbar {
+            width: 4px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: #fdd2d2;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #EE4D47;
+            border-radius: 0;
+          }
+
+          & p {
+            margin: 0;
+          }
+        }
+
+        .photoWrapper {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          height: 60px;
+          border-radius: 30px;
+          overflow: hidden;
+
+          div {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 1280px) {
+  .sliderWrapper {
+    min-height: 410px;
+    margin-bottom: 100px;
+
+    .sliderButtonsWrapper {
+      justify-content: center;
+
+      .sliderBtnWrapper {
+        &:last-child {
+          margin-right: 15px;
+        }
+      }
+    }
+
+    .clientsWrapper {
+      left: 0;
+      top: 330px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sliderWrapper {
+    .clientsWrapper {
+      left: -15px;
+      top: 240px;
+
+      .usersWrapper {
+        .userWrapper {
+          .photoWrapper {
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .sliderWrapper {
+    .clientsWrapper {
+      top: 240px;
+
+      .usersWrapper .userWrapper {
+        padding: 20px;
+
+        .messageWrapper p {
+          font-size: 15px;
+          line-height: 20px;
+        }
+      }
+
+    }
+  }
+}

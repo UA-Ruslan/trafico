@@ -1,0 +1,44 @@
+@import "../../../scss/templates";
+
+.footerLinksWrapper {
+  margin-right: 105px;
+
+  .footerLink {
+    margin-right: 100px;
+    transition: .3s;
+
+    &:hover {
+      color: #EE4D47;
+      transition: .3s;
+      text-shadow: -1px -1px 1px white;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .footerLinksWrapper {
+    margin-right: 150px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .footerLinksWrapper {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footerLinksWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .footerLink {
+      margin: 20px 0;
+    }
+  }
+}
+

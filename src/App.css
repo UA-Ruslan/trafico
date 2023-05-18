@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
-    scrollbar-width: thin;
-    scrollbar-color: #EE4D47 #fdd2d2;
+    scroll-behavior: smooth;
 }
 
 
@@ -36,6 +35,10 @@
 @font-face {
     font-family: "Rubik-Medium";
     src: url("fonts/Rubik-Medium.ttf");
+}
+@font-face {
+    font-family: "Rubik-Light";
+    src: url("fonts/Rubik-Light.ttf");
 }
 
 body {
